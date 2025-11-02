@@ -1,0 +1,6 @@
+package-as: BentoAutoSpawn
+
+ignore:
+  - .gitignore
+  - .pkgmeta
+  - README.md
