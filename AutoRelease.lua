@@ -1,4 +1,4 @@
--- PvP utility addon for auto spirit release and context-aware TAB targeting
+-- Auto spirit release addon for PvP zones
 
 local RELEASE_DELAY = 0.1
 
@@ -39,42 +39,6 @@ local function releaseSpiritInPvp()
   end)
 end
 
-local function updateTabTargetBinding()
-  local _, instanceType = IsInInstance()
-  local zonePvpInfo = C_PvP.GetZonePVPInfo()
-
-  local tabKey = "TAB"
-  local bindingSet = GetCurrentBindingSet()
-
-  -- Skip during combat or when using account-wide bindings
-  if InCombatLockdown() or (bindingSet ~= 1 and bindingSet ~= 2) then
-    return
-  end
-
-  local currentBinding = GetBindingAction(tabKey)
-
-  -- Pick action based on PvP or PvE context
-  local targetAction = (instanceType == "arena" or instanceType == "pvp" or zonePvpInfo == "combat")
-    and "TARGETNEARESTENEMYPLAYER"
-    or  "TARGETNEARESTENEMY"
-
-  if currentBinding == targetAction then
-    return
-  end
-
-  -- Write binding and notify
-  SetBinding(tabKey, targetAction)
-  SaveBindings(bindingSet)
-
-  local bindingMode = (targetAction == "TARGETNEARESTENEMYPLAYER") and "PVP TAB" or "PVE TAB"
-  print(bindingMode)
-end
-
 local spiritReleaseFrame = CreateFrame("Frame")
 spiritReleaseFrame:RegisterEvent("PLAYER_DEAD")
 spiritReleaseFrame:SetScript("OnEvent", releaseSpiritInPvp)
-
-local tabBindingFrame = CreateFrame("Frame")
-tabBindingFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-tabBindingFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
-tabBindingFrame:SetScript("OnEvent", updateTabTargetBinding)

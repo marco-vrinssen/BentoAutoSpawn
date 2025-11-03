@@ -1,6 +1,6 @@
 ## Interface: 110200
 ## Title: Auto Release
-## Notes: Auto spirit release and context-aware TAB targeting for PvP zones
+## Notes: Auto spirit release in PvP zones
 ## Author: MIYANKO
 ## Version: 1.0.0
 

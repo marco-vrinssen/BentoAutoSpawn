@@ -1,14 +1,12 @@
 # Auto Release
 
-World of Warcraft Retail addon that automatically releases spirit in PvP zones and provides context-aware TAB targeting.
+World of Warcraft Retail addon that automatically releases spirit in PvP zones.
 
 ## Features
 
 - Automatically releases spirit when you die in PvP zones (arenas, battlegrounds, world PvP)
 - Skips auto-release when self-resurrection abilities are available
-- Context-aware TAB targeting that switches between player and enemy targeting based on zone
-- In PvP zones: TAB targets nearest enemy player
-- In PvE zones: TAB targets nearest enemy (any type)
+- Works seamlessly in the background with no configuration needed
 
 ## Compatibility
 
