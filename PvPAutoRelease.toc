@@ -1,7 +1,7 @@
 ## Interface: 110200
-## Title: Auto Release
+## Title: PvP Auto Release
 ## Notes: Auto spirit release in PvP zones
 ## Author: MIYANKO
 ## Version: 1.0.0
 
-AutoRelease.lua
+PvPAutoRelease.lua

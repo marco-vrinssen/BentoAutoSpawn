@@ -1,4 +1,4 @@
-# Auto Release
+# PvP Auto Release
 
 World of Warcraft Retail addon that automatically releases spirit in PvP zones.
 
